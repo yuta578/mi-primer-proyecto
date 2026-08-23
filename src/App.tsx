@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { TarjetaTramite } from './components/TarjetaTramite'
+import { ConsultasPage } from './pages/ConsultasPage'
 import './App.css'
 
 export interface TramiteData {
@@ -35,6 +36,8 @@ const TRAMITES: TramiteData[] = [
 ]
 
 export const App: React.FC = () => {
+  const [vistaActual, setVistaActual] = useState<'inicio' | 'consultas'>('consultas')
+
   return (
     <div className="app-container">
       {/* Header Institucional */}
@@ -53,6 +56,23 @@ export const App: React.FC = () => {
               <p>Atención y Solución a Trámites Urbanos</p>
             </div>
           </div>
+          
+          {/* Navegación de Vistas */}
+          <nav className="nav-menu">
+            <button 
+              className={`nav-link ${vistaActual === 'inicio' ? 'active' : ''}`}
+              onClick={() => setVistaActual('inicio')}
+            >
+              Inicio
+            </button>
+            <button 
+              className={`nav-link ${vistaActual === 'consultas' ? 'active' : ''}`}
+              onClick={() => setVistaActual('consultas')}
+            >
+              Consultas en Línea (/api/pqrs)
+            </button>
+          </nav>
+
           <div className="badge-oficial">
             <span className="badge-dot"></span>
             Sistema en Línea Activo
@@ -60,42 +80,49 @@ export const App: React.FC = () => {
         </div>
       </header>
 
-      {/* Portada Institucional */}
-      <section className="portada-institucional">
-        <div className="portada-content">
-          <span className="portada-tag">Atención Directa al Ciudadano</span>
-          <h2 className="portada-titulo">Ventanilla Única de Trámites y Reportes</h2>
-          <p className="portada-subtitulo">
-            Gestiona de forma eficiente las solicitudes de servicios públicos municipales. 
-            Monitorea el estado de tus reportes en tiempo real.
-          </p>
-        </div>
-      </section>
+      {/* Renderizado de Vistas según Navegación */}
+      {vistaActual === 'inicio' ? (
+        <>
+          {/* Portada Institucional */}
+          <section className="portada-institucional">
+            <div className="portada-content">
+              <span className="portada-tag">Atención Directa al Ciudadano</span>
+              <h2 className="portada-titulo">Ventanilla Única de Trámites y Reportes</h2>
+              <p className="portada-subtitulo">
+                Gestiona de forma eficiente las solicitudes de servicios públicos municipales. 
+                Monitorea el estado de tus reportes en tiempo real.
+              </p>
+            </div>
+          </section>
 
-      {/* Sección Principal con Encabezado "Respuestas" y las 3 Tarjetas */}
-      <main className="seccion-principal">
-        <div className="encabezado-seccion">
-          <div>
-            <h2 className="titulo-respuestas">Respuestas</h2>
-            <p className="subtitulo-respuestas">
-              Selecciona una categoría de trámite para ver soluciones, reportes y estado del servicio
-            </p>
-          </div>
-        </div>
+          {/* Sección Principal con Encabezado "Respuestas" y las 3 Tarjetas */}
+          <main className="seccion-principal">
+            <div className="encabezado-seccion">
+              <div>
+                <h2 className="titulo-respuestas">Respuestas</h2>
+                <p className="subtitulo-respuestas">
+                  Selecciona una categoría de trámite para ver soluciones, reportes y estado del servicio
+                </p>
+              </div>
+            </div>
 
-        {/* Tarjetas en Columnas */}
-        <div className="grid-tarjetas">
-          {TRAMITES.map(item => (
-            <TarjetaTramite
-              key={item.id}
-              titulo={item.titulo}
-              descripcion={item.descripcion}
-              categoria={item.categoria}
-              icon={item.icon}
-            />
-          ))}
-        </div>
-      </main>
+            {/* Tarjetas en Columnas */}
+            <div className="grid-tarjetas">
+              {TRAMITES.map(item => (
+                <TarjetaTramite
+                  key={item.id}
+                  titulo={item.titulo}
+                  descripcion={item.descripcion}
+                  categoria={item.categoria}
+                  icon={item.icon}
+                />
+              ))}
+            </div>
+          </main>
+        </>
+      ) : (
+        <ConsultasPage />
+      )}
 
       {/* Pie de Página Institucional */}
       <footer className="footer-institucional">

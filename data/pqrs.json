@@ -1,0 +1,102 @@
+[
+  {
+    "id": "RAD-2026-0101",
+    "solicitante": "Carlos Eduardo Mendoza",
+    "categoria": "Agua y Alcantarillado",
+    "descripcion": "Fuga de agua limpia en la intersección de la Calle 45 con Carrera 12. Pérdida constante de agua sobre la vía pública desde hace 48 horas.",
+    "estado": "En trámite",
+    "fechaRadicacion": "2026-08-20",
+    "plazoLegal": "15 días hábiles",
+    "respuestaOficial": "Solicitud asignada a la cuadrilla de Mantenimiento Red Matriz. Inspección programada para el 24 de agosto."
+  },
+  {
+    "id": "RAD-2026-0102",
+    "solicitante": "María Fernanda Gómez",
+    "categoria": "Recolección de Basura",
+    "descripcion": "Acumulación de residuos sólidos en el parque principal del barrio La Esperanza debido al incumplimiento del horario de recolección nocturno.",
+    "estado": "Resuelto",
+    "fechaRadicacion": "2026-08-18",
+    "plazoLegal": "10 días hábiles",
+    "respuestaOficial": "Se envió camión de recolección adicional el 19 de agosto y se normalizó la frecuencia de recolección en la zona."
+  },
+  {
+    "id": "RAD-2026-0103",
+    "solicitante": "Jorge Luis Rodríguez",
+    "categoria": "Alumbrado Público",
+    "descripcion": "Tres lámparas LED fuera de servicio en la Avenida Bolivariana entre calles 10 y 14, generando zona de inseguridad nocturna.",
+    "estado": "En trámite",
+    "fechaRadicacion": "2026-08-21",
+    "plazoLegal": "15 días hábiles",
+    "respuestaOficial": "Radicado en evaluación técnica. Repuesto de balasto y fotocelda programado para reemplazo en 72 horas."
+  },
+  {
+    "id": "RAD-2026-0104",
+    "solicitante": "Ana Lucía Benítez",
+    "categoria": "Agua y Alcantarillado",
+    "descripcion": "Tapa de alcantarilla fracturada y rebosamiento de aguas residuales frente al predio N° 45-89 durante fuertes lluvias.",
+    "estado": "Resuelto",
+    "fechaRadicacion": "2026-08-12",
+    "plazoLegal": "15 días hábiles",
+    "respuestaOficial": "Reemplazo de tapa de hierro dúctil completado y desobstrucción del colector secundario ejecutada."
+  },
+  {
+    "id": "RAD-2026-0105",
+    "solicitante": "Roberto Antonio Silva",
+    "categoria": "Recolección de Basura",
+    "descripcion": "Punto crítico de disposición ilegal de escombros y restos de poda en la esquina de la Calle 30 con Transversal 5.",
+    "estado": "En trámite",
+    "fechaRadicacion": "2026-08-22",
+    "plazoLegal": "10 días hábiles",
+    "respuestaOficial": "Programado operativo especial de limpia urbana y recolección de voluminosos para el 25 de agosto."
+  },
+  {
+    "id": "RAD-2026-0106",
+    "solicitante": "Claudia Patricia Morales",
+    "categoria": "Alumbrado Público",
+    "descripcion": "Poste de concreto con inclinación peligrosa a causa de colisión vehicular previa en la Calle 8 con Carrera 22.",
+    "estado": "En trámite",
+    "fechaRadicacion": "2026-08-19",
+    "plazoLegal": "5 días hábiles",
+    "respuestaOficial": "Inspeccionado por personal de emergencias urbanas. Se aseguró la estructura y se programó sustitución de poste."
+  },
+  {
+    "id": "RAD-2026-0107",
+    "solicitante": "Diego Alejandro Torres",
+    "categoria": "Agua y Alcantarillado",
+    "descripcion": "Baja presión sostenida en el suministro de agua potable en el sector residencial del Norte durante las horas pico de 6am a 9am.",
+    "estado": "Resuelto",
+    "fechaRadicacion": "2026-08-10",
+    "plazoLegal": "15 días hábiles",
+    "respuestaOficial": "Se reguló la válvula reductora de presión del sector 4B y se restableció el caudal nominal."
+  },
+  {
+    "id": "RAD-2026-0108",
+    "solicitante": "Esperanza Gutiérrez",
+    "categoria": "Recolección de Basura",
+    "descripcion": "Solicitud de instalación de contenedores cerrados para separación en la fuente en la zona comercial del centro.",
+    "estado": "Resuelto",
+    "fechaRadicacion": "2026-08-05",
+    "plazoLegal": "30 días hábiles",
+    "respuestaOficial": "Se instalaron 4 puntos limpios bi-compartimentados para reciclaje y basura ordinaria."
+  },
+  {
+    "id": "RAD-2026-0109",
+    "solicitante": "Hernando Gabriel Suárez",
+    "categoria": "Alumbrado Público",
+    "descripcion": "Falla intermitente (parpadeo constante) en la luminaria pública ubicada frente al Centro de Salud Comunal.",
+    "estado": "Resuelto",
+    "fechaRadicacion": "2026-08-14",
+    "plazoLegal": "10 días hábiles",
+    "respuestaOficial": "Sustitución de driver electrónico y módulo LED realizada satisfactoriamente."
+  },
+  {
+    "id": "RAD-2026-0110",
+    "solicitante": "Valeria Martínez Castro",
+    "categoria": "Agua y Alcantarillado",
+    "descripcion": "Solicitud de revisión de medidor por incremento atípico en la facturación del servicio de acueducto.",
+    "estado": "En trámite",
+    "fechaRadicacion": "2026-08-23",
+    "plazoLegal": "15 días hábiles",
+    "respuestaOficial": "Solicitud aceptada. Técnico de micromedición agendado para prueba metrológica en laboratorio."
+  }
+]

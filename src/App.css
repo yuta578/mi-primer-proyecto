@@ -29,6 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .brand-institucional {
@@ -62,6 +63,31 @@
   font-size: 0.8rem;
   color: #93c5fd;
   font-weight: 500;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem;
+  border-radius: 8px;
+}
+
+.nav-link {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: var(--white);
+  color: var(--azul-institucional);
 }
 
 .badge-oficial {
@@ -191,6 +217,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   align-items: stretch;
+  margin-bottom: 4rem;
 }
 
 /* Footer */
