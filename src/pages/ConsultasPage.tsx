@@ -2,7 +2,11 @@ import React, { useEffect, useState, useCallback } from 'react'
 import type { PQRSItem } from '../types/pqrs'
 import './ConsultasPage.css'
 
-export const ConsultasPage: React.FC = () => {
+interface ConsultasPageProps {
+  onVerDetalle?: (id: string) => void
+}
+
+export const ConsultasPage: React.FC<ConsultasPageProps> = ({ onVerDetalle }) => {
   const [pqrsData, setPqrsData] = useState<PQRSItem[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
@@ -139,7 +143,12 @@ export const ConsultasPage: React.FC = () => {
 
             <div className="pqrs-cards-grid">
               {filteredData.map(item => (
-                <article key={item.id} className="pqrs-card">
+                <article 
+                  key={item.id} 
+                  className="pqrs-card clickable-card"
+                  onClick={() => onVerDetalle && onVerDetalle(item.id)}
+                  title="Haz clic para ver la ficha técnica completa"
+                >
                   <div className="pqrs-card-header">
                     <span className="pqrs-card-id">{item.id}</span>
                     <span className={`status-tag ${item.estado === 'Resuelto' ? 'tag-resuelto' : 'tag-tramite'}`}>
@@ -167,6 +176,10 @@ export const ConsultasPage: React.FC = () => {
                   <div className="pqrs-card-response">
                     <strong>Respuesta Oficial:</strong>
                     <p>{item.respuestaOficial}</p>
+                  </div>
+
+                  <div className="card-action-hint">
+                    Ver ficha técnica completa ➔
                   </div>
                 </article>
               ))}

@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TarjetaTramite } from './components/TarjetaTramite'
 import { ConsultasPage } from './pages/ConsultasPage'
+import { DetalleConsultaPage } from './pages/DetalleConsultaPage'
 import './App.css'
 
 export interface TramiteData {
@@ -36,7 +37,34 @@ const TRAMITES: TramiteData[] = [
 ]
 
 export const App: React.FC = () => {
-  const [vistaActual, setVistaActual] = useState<'inicio' | 'consultas'>('consultas')
+  const [vistaActual, setVistaActual] = useState<'inicio' | 'consultas' | 'detalle'>('consultas')
+  const [selectedRadicadoId, setSelectedRadicadoId] = useState<string>('RAD-2026-0101')
+
+  // Manejador de Hash URL (ej: #consultas/1 o #consultas/RAD-2026-0101)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash
+      if (hash.startsWith('#consultas/')) {
+        const id = hash.replace('#consultas/', '')
+        setSelectedRadicadoId(id)
+        setVistaActual('detalle')
+      }
+    }
+    handleHashChange()
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
+  const abrirDetalle = (id: string) => {
+    setSelectedRadicadoId(id)
+    setVistaActual('detalle')
+    window.location.hash = `consultas/${id}`
+  }
+
+  const volverAConsultas = () => {
+    setVistaActual('consultas')
+    window.location.hash = ''
+  }
 
   return (
     <div className="app-container">
@@ -61,13 +89,13 @@ export const App: React.FC = () => {
           <nav className="nav-menu">
             <button 
               className={`nav-link ${vistaActual === 'inicio' ? 'active' : ''}`}
-              onClick={() => setVistaActual('inicio')}
+              onClick={() => { setVistaActual('inicio'); window.location.hash = '' }}
             >
               Inicio
             </button>
             <button 
-              className={`nav-link ${vistaActual === 'consultas' ? 'active' : ''}`}
-              onClick={() => setVistaActual('consultas')}
+              className={`nav-link ${vistaActual === 'consultas' || vistaActual === 'detalle' ? 'active' : ''}`}
+              onClick={volverAConsultas}
             >
               Consultas en Línea (/api/pqrs)
             </button>
@@ -81,7 +109,7 @@ export const App: React.FC = () => {
       </header>
 
       {/* Renderizado de Vistas según Navegación */}
-      {vistaActual === 'inicio' ? (
+      {vistaActual === 'inicio' && (
         <>
           {/* Portada Institucional */}
           <section className="portada-institucional">
@@ -120,8 +148,17 @@ export const App: React.FC = () => {
             </div>
           </main>
         </>
-      ) : (
-        <ConsultasPage />
+      )}
+
+      {vistaActual === 'consultas' && (
+        <ConsultasPage onVerDetalle={abrirDetalle} />
+      )}
+
+      {vistaActual === 'detalle' && (
+        <DetalleConsultaPage 
+          radicadoId={selectedRadicadoId} 
+          onVolver={volverAConsultas} 
+        />
       )}
 
       {/* Pie de Página Institucional */}

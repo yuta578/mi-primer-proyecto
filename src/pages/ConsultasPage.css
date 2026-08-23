@@ -275,9 +275,14 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.pqrs-card:hover {
+.clickable-card {
+  cursor: pointer;
+}
+
+.clickable-card:hover {
+  border-color: #003399;
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 51, 153, 0.12);
+  box-shadow: 0 12px 28px rgba(0, 51, 153, 0.15);
 }
 
 .pqrs-card-header {
@@ -372,6 +377,21 @@
 
 .pqrs-card-response strong {
   color: #003399;
+}
+
+.card-action-hint {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #003399;
+  text-align: right;
+  transition: transform 0.2s ease;
+}
+
+.clickable-card:hover .card-action-hint {
+  transform: translateX(4px);
 }
 
 /* Responsivo */
